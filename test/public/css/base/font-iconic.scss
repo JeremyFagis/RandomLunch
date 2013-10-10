@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'iconic';
+  src:url('../fonts/iconic/iconic.eot');
+  src:url('../fonts/iconic/iconic.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/iconic/iconic.woff') format('woff'),
+    url('../fonts/iconic/iconic.ttf') format('truetype'),
+    url('../fonts/iconic/iconic.svg#iconic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: 'iconic';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  font-size: 20px;
+  -webkit-font-smoothing: antialiased;
+  vertical-align: -17%;
+  &.inline-icon {
+    margin-right: 5px;
+  }
+}
+.icon-cloud-download:before {
+  content: "\e000";
+}
+.icon-facebook:before {
+  content: "\e001";
+}
+.icon-twitter:before {
+  content: "\e002";
+}
+.icon-github:before {
+  content: "\e003";
+}
+.icon-dribbble:before {
+  content: "\e004";
+}
+.icon-library:before {
+  content: "\e006";
+}
+.icon-calendar:before {
+  content: "\e007";
+}
+.icon-briefcase:before {
+  content: "\e009";
+}
+.icon-redo:before {
+  content: "\e00a";
+}
+.icon-rotate:before {
+  content: "\e00b";
+}
+.icon-howard:before {
+  content: "\e00c";
+}
+.icon-close:before {
+  content: "\e011";
+}
+.icon-pinterest:before {
+  content: "\e005";
+}
+.icon-plus:before {
+  content: "\e008";
+}

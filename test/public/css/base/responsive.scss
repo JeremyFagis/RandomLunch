@@ -1,0 +1,558 @@
+@media (max-width: $screen-md) {
+  #top-message {
+    height: $topMessageSmHeight;
+    font-size: $topMessageSmFontSize;
+    line-height: $topMessageSmLineHeight;
+    #message {
+      top: 130px;
+    }
+    #rotating-hello {
+      height: $topMessageSmLineHeight;
+      ul {
+        li {
+          line-height: $topMessageSmLineHeight;
+          height: $topMessageLineHeight;
+          span {
+            line-height: $topMessageSmLineHeight;
+            height: $topMessageSmLineHeight;
+          }
+        }
+      }
+    }
+  }
+
+  #works-wrapper {
+    #works-list {
+      width: $work-size*2 + $work-margin*2*2;
+      .one-work {
+        margin: $work-size/-2 $work-margin $work-margin $work-margin;
+        &:nth-child(4) {
+          margin-left: $work-margin;
+        }
+        &:nth-child(3),
+        &:nth-child(6),
+        &:nth-child(9),
+        &:nth-child(12) {
+          margin-left: $work-size/2 + $work-margin*2;
+          clear: right;
+        }
+      }
+    }
+  }
+
+  #timeline-wrapper {
+    .one-event {
+      .event-inner ul li {
+        float: none;
+        width: 100%;
+      }
+    }
+  }
+
+  #socials-links {
+    a {
+      &:nth-child(4) {
+        margin-left: 13px;
+      }
+      &:nth-child(3),
+      &:nth-child(6),
+      &:nth-child(9),
+      &:nth-child(12) {
+        margin-left: 51px;
+        clear: right;
+      }
+    }
+  }
+
+  #mobile-nav {
+    display: block;
+  }
+  .push-toleft {
+    left: -240px;
+    @include transition(all 0.3s ease);
+  }
+  #topbar {
+    &.push-toleft {
+      left: -240px;
+    }
+  }
+  .border-bar {
+    &#left-bar {
+      &.push-toleft {
+        left: -240px;
+      }
+    }
+    &#right-bar {
+      &.push-toleft {
+        left: auto;
+        right: 240px;
+      }
+    }
+  }
+
+}
+
+
+// Responsive: Phone
+// --------------------------------------------------
+@media (max-width: 767px) {
+  
+  .visible-mobile {
+    display: block;
+  }
+  .hidden-mobile {
+    display: none;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0 20px;
+    overflow: hidden;
+  }
+  .row {
+    [class*="span"],
+    &.inline-table [class*="span"] {
+      float: none !important;
+      display: block !important;
+      width: 100% !important;
+      margin-left: 0 !important;
+    }
+  }
+
+  .hidden-mobile {
+    display: none;
+  }
+  #top-message {
+    #message {
+      top: 100px;
+    }
+    br {
+      display: none;
+    }
+  }
+  #timeline-wrapper {
+    #line {
+      left: $timelineBulletBgSize/2!important;
+    }
+    .one-event {
+      width: 100%!important;
+      float: none!important;
+      padding-left: 80px!important;
+      .bullet {
+        left: 0!important;
+      }
+      &.studies {
+        float: none!important;
+        padding-left: 80px!important;
+        padding-right: 0;
+        .bullet {
+          left: 0!important;
+          right: auto!important;
+        }
+        .event-inner {
+          h3 {
+            &:after {
+              left: -20px!important;
+              border-left-color: transparent!important;
+              border-right-color: $studiesColor!important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #works-wrapper {
+    #works-list {
+      width: $work-size + $work-margin*2;
+      padding: 0;
+      .one-work {
+        margin: $work-margin !important;
+        float: none;
+      }
+    }
+  }
+
+  #contact-row {
+    .col {
+      width: 50%;
+      float: left;
+    }
+    #contact-list {
+      margin-top: 10px;
+    }
+    #socials-links-wrapper {
+      margin: 0 0 20px 0;
+      h5 {
+        text-align: center;
+      }
+      #socials-links {
+        width: 155px;
+        margin: auto;
+      }
+    }
+  }
+
+  footer {
+    padding: 30px 0;
+    text-align: center;
+    .mt50 {
+      margin-top: 0;
+    }
+  }
+
+}
+
+@media (max-width: 479px) {
+
+  #topbar {
+    padding: 0;
+  }
+  #all-wrapper {
+    padding: 0;
+  }
+  .border-bar {
+    display: none;
+  }
+  section.one-part {
+    padding: 70px 0;
+    h1.title {
+      margin-left: -20px;
+      margin-right: -20px;
+      font-size: 25px;
+    }
+  }
+  #workbox #workbox-container {
+    width: auto;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    left: 5px;
+    .workbox-header {
+      padding: 20px 30px;
+      h1 {
+        font-size: 25px;
+        line-height: 35px;
+        font-weight: $fwSemiBold;
+      }
+      h2 {
+        font-size: 16px;
+        font-weight: $fwLight;
+        color: #BBB;
+      }
+    }
+    .workbox-footer {
+      .workbox-keywords {
+        li {
+          float: none;
+          width: 100%;
+        }
+      }
+    }
+  }
+  #timeline-wrapper {
+    #line {
+      left: $timelineBulletBgSizeXS/2!important;
+    }
+    .one-event {
+      padding-left: 70px !important;
+      &.studies {
+        padding-left: 70px !important;
+      }
+      .bullet {
+        left: -$timelineBulletBgSizeXS/2;
+        top: $timelineBulletTop - ($timelineBulletBgSizeXS/2);
+        width: $timelineBulletBgSizeXS;
+        height: $timelineBulletBgSizeXS;
+        .bullet-inner {
+          left: ($timelineBulletBgSizeXS - $timelineBulletSizeXS) / 2;
+          top: ($timelineBulletBgSizeXS - $timelineBulletSizeXS) / 2;
+          width: $timelineBulletSizeXS;
+          height: $timelineBulletSizeXS;
+          i {
+            line-height: $timelineBulletSizeXS;
+            vertical-align: -25%;
+          }
+        }
+      }
+      .event-inner ul li {
+        float: none;
+        width: 100%;
+      }
+    }
+  }
+
+  #contact-row {
+    .col {
+      width: 100%;
+      float: none;
+    }
+    #contact-list {
+      margin-top: 10px;
+    }
+    #socials-links-wrapper {
+      margin: 20px 0 20px 0;
+      h5 {
+        text-align: left;
+      }
+      #socials-links {
+        width: 155px;
+        margin: 0;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 500px) {
+  #timeline-wrapper {
+    .one-event {
+      .event-inner ul li {
+        float: none;
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+
+
+
+// Responsive utilities
+// -------------------------
+// More easily include all the states for responsive-utilities.less.
+@mixin responsive-visibility() {
+  display: block !important;
+}
+
+@mixin responsive-invisibility() {
+  display: none !important;
+}
+
+
+
+
+//
+// Responsive: Utility classes
+// --------------------------------------------------
+
+
+// IE10 Metro responsive
+// Required for Windows 8 Metro split-screen snapping with IE10
+//
+// Source: http://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/
+@-ms-viewport{
+  width: device-width;
+}
+
+// IE10 on Windows Phone 8
+// IE10 on WP8 doesn't report CSS pixels, but actual device pixels. In
+// other words, say on a Lumia, you'll get 768px as the device width,
+// meaning users will see the tablet styles and not phone styles.
+//
+// Alternatively you can override this with JS (see source below), but
+// we won't be doing that here given our limited scope.
+//
+// Source: http://timkadlec.com/2013/01/windows-phone-8-and-device-width/
+@media screen and (max-width: 400px) {
+  @-ms-viewport{
+    width: 320px;
+  }
+}
+
+// Hide from screenreaders and browsers
+// Credit: HTML5 Boilerplate
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+// Visibility utilities
+
+.visible-xs {
+  @include responsive-invisibility();
+  @media (max-width: $screen-xs-max) {
+    @include responsive-visibility();
+  }
+  &.visible-sm {
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      @include responsive-visibility();
+    }
+  }
+  &.visible-md {
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+      @include responsive-visibility();
+    }
+  }
+  &.visible-lg {
+    @media (min-width: $screen-lg-min) {
+      @include responsive-visibility();
+    }
+  }
+}
+.visible-sm {
+  @include responsive-invisibility();
+  &.visible-xs {
+    @media (max-width: $screen-xs-max) {
+      @include responsive-visibility();
+    }
+  }
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    @include responsive-visibility();
+  }
+  &.visible-md {
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+      @include responsive-visibility();
+    }
+  }
+  &.visible-lg {
+    @media (min-width: $screen-lg-min) {
+      @include responsive-visibility();
+    }
+  }
+}
+.visible-md {
+  @include responsive-invisibility();
+  &.visible-xs {
+    @media (max-width: $screen-xs-max) {
+      @include responsive-visibility();
+    }
+  }
+  &.visible-sm {
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      @include responsive-visibility();
+    }
+  }
+  @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    @include responsive-visibility();
+  }
+  &.visible-lg {
+    @media (min-width: $screen-lg-min) {
+      @include responsive-visibility();
+    }
+  }
+}
+.visible-lg {
+  @include responsive-invisibility();
+  &.visible-xs {
+    @media (max-width: $screen-xs-max) {
+      @include responsive-visibility();
+    }
+  }
+  &.visible-sm {
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      @include responsive-visibility();
+    }
+  }
+  &.visible-md {
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+      @include responsive-visibility();
+    }
+  }
+  @media (min-width: $screen-lg-min) {
+    @include responsive-visibility();
+  }
+}
+
+.hidden-xs {
+  @include responsive-visibility();
+  @media (max-width: $screen-xs-max) {
+    @include responsive-invisibility();
+  }
+  &.hidden-sm {
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      @include responsive-invisibility();
+    }
+  }
+  &.hidden-md {
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+      @include responsive-invisibility();
+    }
+  }
+  &.hidden-lg {
+    @media (min-width: $screen-lg-min) {
+      @include responsive-invisibility();
+    }
+  }
+}
+.hidden-sm {
+  @include responsive-visibility();
+  &.hidden-xs {
+    @media (max-width: $screen-xs-max) {
+      @include responsive-invisibility();
+    }
+  }
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    @include responsive-invisibility();
+  }
+  &.hidden-md {
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+      @include responsive-invisibility();
+    }
+  }
+  &.hidden-lg {
+    @media (min-width: $screen-lg-min) {
+      @include responsive-invisibility();
+    }
+  }
+}
+.hidden-md {
+  @include responsive-visibility();
+  &.hidden-xs {
+    @media (max-width: $screen-xs-max) {
+      @include responsive-invisibility();
+    }
+  }
+  &.hidden-sm {
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      @include responsive-invisibility();
+    }
+  }
+  @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    @include responsive-invisibility();
+  }
+  &.hidden-lg {
+    @media (min-width: $screen-lg-min) {
+      @include responsive-invisibility();
+    }
+  }
+}
+.hidden-lg {
+  @include responsive-visibility();
+  &.hidden-xs {
+    @media (max-width: $screen-xs-max) {
+      @include responsive-invisibility();
+    }
+  }
+  &.hidden-sm {
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      @include responsive-invisibility();
+    }
+  }
+  &.hidden-md {
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+      @include responsive-invisibility();
+    }
+  }
+  @media (min-width: $screen-lg-min) {
+    @include responsive-invisibility();
+  }
+}
+
+// Print utilities
+.visible-print {
+  @include responsive-invisibility();
+}
+
+@media print {
+  .visible-print {
+    @include responsive-visibility();
+  }
+  .hidden-print {
+    @include responsive-invisibility();
+  }
+}

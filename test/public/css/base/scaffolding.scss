@@ -1,0 +1,980 @@
+html {
+  -webkit-text-size-adjust: none;
+}
+
+html, body {
+  &.no-scroll,
+  &.blocked {
+    overflow: hidden;
+    height: 100%;
+  }
+  &.blocked {
+    #blocked {
+      display: block;
+    }
+  }
+}
+
+body {
+  font-family: $baseFontFamily;
+  font-size: $baseFontSize;
+  line-height: $baseLineHeight;
+  font-weight: $defaultFontWeight;
+  background: $backgroundColor;
+  color: $textColor;
+  overflow-x: hidden;
+  position: relative;
+  @include transition(all 0.1s linear);
+}
+
+::selection {
+  background: rgba(0,0,0,0.7);
+  color: #FFF;
+}
+::-moz-selection {
+  background: rgba(0,0,0,0.7);
+  color: #FFF;
+}
+
+a,
+a:visited {
+  color: $linkColor;
+  text-decoration: none;
+  @include transition(0.2s all linear);
+  &:hover {
+    color: $linkHoverColor;
+  }
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  position: relative;
+}
+
+strong {
+  font-weight: $fwSemiBold;
+}
+
+
+
+#wait {
+  background: $backgroundColor;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  #preloader-anim-wrapper {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: darken($backgroundColor, 25%);   
+    top: 50%;
+    height: 80px;
+    margin-top: -40px;
+    position: absolute;
+    font-weight: $fwLight;
+    left: 50%;
+    width: 200px;
+    margin-left: -100px;
+    text-align: center;
+    #txt {
+      display: block;
+      padding-bottom: 15px;
+    }
+    #loader-spin {
+      position: relative;
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      background: darken($backgroundColor, 20%); 
+      margin: 0 auto;
+      padding: 0;
+      @include rotate(45deg);
+      -moz-animation: spin 1s infinite ease;
+      -o-animation: spin 1s infinite ease;
+      -webkit-animation: spin 1s infinite ease;
+      animation: spin 1s infinite ease;
+    }
+  }
+  .logo {
+    color: $mainColor;
+    font-size: 25px;
+    line-height: 25px;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    font-weight: $fwLight;
+    text-transform: uppercase;
+    @include transition(all 0.1s linear);
+    span {
+      font-weight: $fwBold;
+    }
+    &:hover {
+      color: $mainColor;
+    }
+  }
+}
+
+#blocked {
+  background: $backgroundColor;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  display: none;
+  #blocked-message {
+    font-size: 20px;
+    line-height: 30px;
+    color: darken($backgroundColor, 25%);  
+    font-weight: $fwLight;
+    text-align: center;
+    display: table;
+    height: auto;
+    width: 100%;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 0 20px;
+    #txt {
+      display: block;
+      padding-bottom: 15px;
+    }
+  }
+  .logo {
+    color: $mainColor;
+    font-size: 25px;
+    line-height: 25px;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    font-weight: $fwLight;
+    text-transform: uppercase;
+    @include transition(all 0.1s linear);
+    span {
+      font-weight: $fwBold;
+    }
+    &:hover {
+      color: $mainColor;
+    }
+  }
+}
+
+
+@-moz-keyframes spin {
+  0% { -moz-transform: rotate(45deg); }
+  100% { -moz-transform: rotate(224deg); }
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(45deg); }
+  100% { -webkit-transform: rotate(224deg); }
+}
+@-o-keyframes spin {
+  0% { -o-transform: rotate(45deg); }
+  100% { -o-transform: rotate(224deg); }
+}
+@-ms-keyframes spin {
+  0% { -ms-transform: rotate(45deg); }
+  100% { -ms-transform: rotate(224deg); }
+}
+@keyframes spin {
+  0% { transform: rotate(45deg); }
+  100% { transform: rotate(224deg); }
+}
+
+
+
+#all-wrapper {
+  position: relative;
+  z-index: 100;
+  padding: 0 $border-size;
+}
+
+
+#topbar {
+  background: #FFF;
+  height: $topBarHeight;
+  width: 100%;
+  position: fixed;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  padding: 0 15px;
+  z-index: 200;
+  @include transition(all 0.2s linear);
+  #logo {
+    float: left;
+    line-height: $topBarHeight;
+    font-size: 26px;
+    font-weight: $fwLight;
+    text-transform: uppercase;
+    color: $mainColor;
+    span {
+      font-weight: $fwBold;
+    }
+  }
+  nav {
+    float: right;
+    ul {
+      margin: 0;
+      padding: 0;
+      float: right;
+      li {
+        display: inline-block;
+        a {
+          line-height: $topBarHeight;
+          display: block;
+          vertical-align: middle;
+          color: $textColor;
+          text-transform: uppercase;
+          font-weight: $fwRegular;
+          padding: 0 12px;
+          color: #AAA;
+          @include transition(all 0.2s ease-out);
+          &:hover {
+            color: $mainColor;
+          }
+        }
+        &.active {
+          a {
+            color: $mainColor;
+            font-weight: $fwSemiBold;
+          }
+        }
+      }
+    }
+  }
+  #mobile-nav-btn {
+    display: none;
+    float: right;
+    margin-top: ($topBarHeight - $mobileNavBtnSize)/2;
+    width: $mobileNavBtnSize;
+    height: $mobileNavBtnSize;
+    line-height: $mobileNavBtnSize - 2px;
+    text-align: center;
+    overflow: hidden;
+    background: $mainColor;
+    @include rotate(45deg);
+    @include transition(all 0.2s ease);
+    [class^="icon-"], [class*=" icon-"] {
+      color: #FFF;
+      font-size: 20px;
+      vertical-align: middle;
+      display: inline-block;
+      @include rotate(-45deg);
+    }
+    &:hover {
+      background: darken($mainColor, 10%);
+      @include rotate(135deg);
+    }
+    &.active,
+    &.active:hover {
+      background: darken($mainColor, 10%);
+      @include rotate(180deg);
+    }
+  }
+}
+
+.border-bar {
+  background: $border-color;
+  position: fixed;
+  z-index: 199;
+  &#left-bar {
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: $border-size;
+  }
+  &#right-bar {
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: $border-size;
+  }
+  &#bottom-bar {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: $border-size;
+  }
+}
+
+
+#top-message {
+  background: url(../images/home.jpg) 50% bottom;
+  height: $topMessageHeight;
+  font-size: $topMessageFontSize;
+  line-height: $topMessageLineHeight;
+  color: #FFF;
+  text-align: center;
+  margin-top: $topBarHeight;
+  font-weight: $fwXLight;
+  position: relative;
+  overflow: hidden;
+  strong {
+    font-weight: $fwSemiBold;
+  }
+  #message {
+    width: 100%;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 150px;
+    left: 0;
+    right: 0;
+    padding: 0 20px;
+  }
+  #rotating-hello {
+    width: auto;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    height: $topMessageLineHeight;
+    vertical-align: top;
+    text-align: left;
+    z-index: 100;
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        width: 100%;
+        display: block;
+        overflow: hidden;
+        line-height: $topMessageLineHeight;
+        height: $topMessageLineHeight;
+        vertical-align: top;
+        span {
+          line-height: $topMessageLineHeight;
+          height: $topMessageLineHeight;
+        }
+      }
+    }
+  }
+}
+
+
+section.one-part {
+  padding: 70px 0;
+  h1.title {
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    font-size: 30px;
+    position: relative;
+    text-align: center;
+    display: block;
+    padding: 0;
+    background: none;
+    font-weight: 200;
+    span {
+      position: relative;
+      display: inline-block;
+      background: $mainColor;
+      color: #FFF;
+      line-height: 60px;
+      padding: 0 20px;
+      &:before,
+      &:after {
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: transparent;
+        border-width: 30px;
+        top: 50%;
+        margin-top: -30px;
+      }
+      &:before {
+        right: 100%;
+        border-right-color: $mainColor;
+      }
+      &:after {
+        left: 100%;
+        border-left-color: $mainColor;
+      }
+    }
+
+    &:before {
+      content:"";
+      position: absolute;
+      height: 4px;
+      background-color: $mainColor;
+      top: 28px;
+      opacity: 0.3;
+      left: 50%;
+      margin: 0;
+      width: 0%;
+      @include transition(all 1s ease);
+    } 
+
+    &.is-animated {
+      &:before {
+        left: 0%;
+        width: 100%;
+      }
+    }
+  }
+  &.dark {
+    background: darken($backgroundColor, 5%);
+  }
+  &#about {
+    background-image: url(../images/jeremy-fagis.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+  }
+}
+
+
+.form-row {
+  padding: 10px 0;
+  label {
+    display: block;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: $fwSemiBold;
+  }
+  input,
+  textarea {
+    background: #FFF;
+    border: 1px solid #DDD;
+    height: 40px;
+    line-height: 26px;
+    vertical-align: middle;
+    padding: 7px;
+    width: 100%;
+    font-weight: $fwRegular;
+    color: darken($textColor, 10%);
+    @include transition(all 0.1s linear);
+    @include border-radius(4px);
+    &:focus {
+      border: 1px solid #BBB;
+    }
+    &.parsley-error {
+      border: 1px solid $red;
+      @include border-radius(4px 4px 0 0);
+    }
+  }
+  textarea {
+    height: 146px;
+  }
+  #submit {
+    background: $mainColor;
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: $fwLight;
+    border: none;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+    padding: 10px;
+    height: auto;
+    font-size: 18px;
+    line-height: 30px;
+    @include border-radius(4px);
+    &:hover {
+      color: #FFF !important;
+      background: darken($mainColor, 5%);
+    }
+  }
+}
+
+ul.parsley-error-list {
+  margin: 0;
+  padding: 0;
+  @include border-radius(0 0 4px 4px);
+  background: $red;
+  color: #FFF;
+  li {
+    list-style: none;
+    padding: 5px 7px;
+    font-size: 14px;
+  }
+}
+
+#contact-form-ok {
+  display: none;
+  text-align: center;
+  .icon-howard {
+    font-size: 150px;
+    line-height: 180px;
+    color: darken($backgroundColor, 20%);
+  }
+}
+
+#socials-links-wrapper {
+  margin-top: 30px;
+}
+#socials-links {
+  padding-top: 30px;
+  width: 230px;
+  a {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    margin: -11px 13px 0 13px;
+    float: left;
+    text-align: center;
+    border: 2px solid darken($backgroundColor, 10%);
+    @include rotate(45deg);
+    @include transition(all 0.2s linear);
+    i {
+      font-size: 25px;
+      line-height: 50px;
+      vertical-align: top;
+      display: inline-block;
+      color: darken($backgroundColor, 25%);
+      @include rotate(-45deg);
+      @include transition(all 0.2s linear);
+    }
+    &:hover {
+      i {
+        color: #FFF;
+      }
+    }
+    &:nth-child(4) {
+      margin-left: 51px;
+      clear: left;
+    }
+    &#fb-link:hover {
+      border-color: $facebookColor;
+      background: $facebookColor;
+    }
+    &#twitter-link:hover {
+      border-color: $twitterColor;
+      background: $twitterColor;
+    }
+    &#github-link:hover {
+      border-color: $githubColor;
+      background: $githubColor;
+    }
+    &#dribbble-link:hover {
+      border-color: $dribbbleColor;
+      background: $dribbbleColor;
+    }
+    &#pinterest-link:hover {
+      border-color: $pinterestColor;
+      background: $pinterestColor;
+    }
+  }
+}
+
+
+canvas.skillsCharts {
+  width: 100% !important;
+  max-width: 500px;
+  height: auto !important;
+  margin: 0 auto 0 auto;
+}
+canvas.skillsChartsXS {
+  width: 100% !important;
+  max-width: 400px;
+  height: auto !important;
+  margin: 0 auto 0 auto;
+}
+
+.skills-row {
+  .skills-text {
+    margin-top: 80px;
+    @include opacity(0);
+    @include transition(all 0.2s linear);
+    .inner-text {
+      padding: 10px 75px;
+    }
+  }
+  &.is-animated {
+    .skills-text {
+      @include opacity(100);
+    }
+  }
+}
+
+#charts-wrapper {
+  position: relative;
+  #chart-bg {
+    width: 460px;
+    height: 460px;
+    position: absolute;
+    top: 95px;
+    left: 50%;
+    margin-left: -230px;
+    background: #FFF;
+    @include rotate(45deg);
+    z-index: 50;
+  }
+  #charts-carousel {
+    z-index: 100;
+    width: 100%;
+    height: 700px;
+    margin: auto;
+    .item {
+      text-align: center;
+      padding-top: 75px;
+      canvas {
+        margin-bottom: -20px;
+      } 
+      .chart-title {
+        background: $mainColor;
+        font-weight: 300;
+        font-size: 24px;
+        color: #FFF;
+        line-height: 50px;
+        width: 450px;
+        margin: 0 auto 10px auto;
+      }
+    }
+    // .owl-prev {
+    //   position: absolute;
+    //   top: 100px;
+    //   left: 0;
+    // }
+  }
+}
+
+
+
+#timeline-wrapper {
+  position: relative;
+  #line {
+    position: absolute;
+    width: $timelineLineWidth;
+    height: 100%;
+    left: 50%;
+    margin-left: - $timelineLineWidth/2;
+    background: $timelineLineBg;
+    @include border-radius(4px);
+  }
+  .one-event {
+    padding-left: $timelineEventLeft;
+    position: relative;
+    padding-bottom: $timelineEventBottom;
+    float: right;
+    clear: both;
+    display: block;
+    width: 50%;
+    @include opacity(0);
+    @include transition(all 0.2s linear);
+    &:last-child {
+      padding-bottom: 0;
+    }
+    .bullet {
+      background: $backgroundColor;
+      position: absolute;
+      z-index: 50;
+      left: -$timelineBulletBgSize/2;
+      top: $timelineBulletTop - ($timelineBulletBgSize/2);
+      width: $timelineBulletBgSize;
+      height: $timelineBulletBgSize;
+      @include rotate(45deg);
+      .bullet-inner {
+        background: $timelineLineBg;
+        position: absolute;
+        z-index: 60;
+        text-align: center;
+        left: ($timelineBulletBgSize - $timelineBulletSize) / 2;
+        top: ($timelineBulletBgSize - $timelineBulletSize) / 2;
+        width: $timelineBulletSize;
+        height: $timelineBulletSize;
+        i {
+          color: #FFF;
+          line-height: $timelineBulletSize;
+          vertical-align: -25%;
+          display: inline-block;
+          @include rotate(-45deg);
+        }
+      }
+    }
+    .date {
+      position: absolute;
+      left: -100px;
+      width: 100px;
+      text-align: right;
+    }
+    .event-inner {
+      background: darken($backgroundColor, 5%);
+      background: #FFF;
+      border: 1px solid #CCC;
+      padding: 15px;
+      position: relative;
+      @include transition(all 0.2s linear);
+      h3 {
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: $fwSemiBold;
+        line-height: 24px;
+        color: $backgroundColor;
+        text-shadow: none;
+        position: relative;
+        margin: -16px -16px 10px -16px;
+        padding: 10px 15px;
+        color: #FFF;
+        span {
+          text-transform: none;
+          font-weight: $fwRegular;
+        }
+        .separator {
+          padding: 0 5px;
+        }
+        &:after{
+          right: 100%;
+          border: solid transparent;
+          content: " ";
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+          border-color: rgba(222, 222, 13, 0);
+          border-right-color: #333;
+          border-width: 10px;
+          top: 12px;
+        }
+      }
+      .more-details {
+        display: none;
+      }
+      p {
+        margin: 10px 0 0 0;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+      ul {
+        width: 100%;
+        li {
+          float: left;
+          width: 50%;
+        }
+      }
+    }
+    &.job {
+      .bullet {
+        .bullet-inner {
+          background: $jobColor;
+        }
+      }
+      .event-inner {
+        right: -$timelineEventAnimation;
+        left: auto;
+        h3 {
+          background-color: $jobColor;
+          span {
+            color: darken($jobColor, 20%);
+          }
+          &:after {
+            border-right-color: $jobColor;
+          }
+        }
+      }
+    }
+    &.studies {
+      float: left;
+      padding-left: 0;
+      padding-right: $timelineEventLeft;
+      .bullet {
+        left: auto;
+        right: -$timelineBulletBgSize/2;
+        .bullet-inner {
+          background: $studiesColor;
+        }
+      }
+      .event-inner {
+        left: -$timelineEventAnimation;
+        right: auto;
+        h3 {
+          background-color: $studiesColor;
+          span {
+            color: rgba(255,255,255,0.5);
+          }
+          &:after {
+            left: 100%;
+            border-color: rgba(222, 222, 13, 0);
+            border-left-color: $studiesColor;
+          }
+        }
+      }
+    }
+    &.is-animated {
+      @include opacity(100);
+      &.studies {
+        .event-inner {
+          left: 0;
+        }
+      }
+      &.job {
+        .event-inner {
+          right: 0;
+        }
+      }
+    }
+  }
+}
+
+#works-wrapper {
+  #works-list {
+    width: $work-size*3 + $work-margin*3*2;
+    padding: $work-size/2 0 0 0;
+    margin: auto;
+    .one-work {
+      width: $work-size;
+      height: $work-size;
+      float: left;
+      position: relative;
+      margin: $work-size/-2 $work-margin $work-margin $work-margin;
+      &:nth-child(4) {
+        margin-left: $work-size/2 + $work-margin*2;
+      }
+      .workbox-link {
+        width: $work-size - $work-padding*2;
+        height: $work-size - $work-padding*2; 
+        display: block;
+        position: absolute;
+        bottom: $work-padding;
+        left: $work-padding;
+        // background: darken($backgroundColor, 15%);
+        background: fade_out($mainColor, 0.7);
+        text-align: center; 
+        @include rotate(45deg);
+        overflow: hidden;
+        z-index: 9;
+        .work-title-wrapper {
+          width: 276px; 
+          height: 274px; 
+          float: left; 
+          margin: $work-padding*-1 0 0 $work-padding*-1;
+          text-align: center; 
+          @include rotate(-45deg);
+          position: relative;
+          &:before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            top: $work-padding + 15px;
+            bottom: $work-padding + 15px;
+            left: $work-padding + 15px;
+            right: $work-padding + 15px;
+            background: rgba(255,255,255,0.8);
+            @include opacity(0);
+            @include rotate(45deg);
+            // @include transition(all 0.1s linear);
+          }
+          .title-row {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 8;
+            display: table;
+            @include opacity(0);
+            // @include transition(all 0.1s linear);
+            .work-title {
+              display: table-cell; 
+              vertical-align: middle; 
+              padding: 30px;
+              font-size: 18px;
+              line-height: 24px;
+              text-transform: uppercase;
+              color: #666;
+              font-weight: 600;
+            }
+          }
+        }
+        &:hover {
+          .work-title-wrapper {
+            &:before {
+              @include opacity(100);
+            }
+            .title-row {
+              @include opacity(100);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+footer {
+  background: darken($backgroundColor, 5%);
+  padding: 60px 0;
+  color: lighten($textColor, 20%);
+  i.icon-howard {
+    font-size: 150px;
+    color: lighten($textColor, 30%);
+  }
+}
+
+
+
+/* General styles for all menus */
+#mobile-nav {
+  background: $mainColor;
+  display: none;
+  position: fixed;
+  width: 240px;
+  height: 100%;
+  top: 0;
+  z-index: 1000;
+  right: -240px;
+  overflow-y: scroll;
+  @include transition(all 0.3s ease);
+  &.opened {
+    right: 0px;
+  }
+  h3 {
+    color: lighten($mainColor, 25%);
+    font-size: 1.9em;
+    padding: 25px;
+    margin: 0;
+    font-weight: 300;
+    background: darken($mainColor, 8%);
+  }
+  a {
+    display: block;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 300;
+    border-bottom: 1px solid lighten($mainColor, 10%);
+    padding: 15px 25px;
+    &:hover {
+      background: lighten($mainColor, 5%);
+    }
+    &:active {
+      background: lighten($mainColor, 10%);
+    }
+  }
+  footer {
+    padding: 15px 25px;
+    font-size: 14px;
+    color: lighten($mainColor, 20%);
+    background: transparent;
+    font-weight: 400;
+  }
+}
+
+
+#images-list {
+  margin-top: 20px;
+  text-align: center;
+  img {
+    margin-bottom: 15px;
+  }
+}
+
+
+
+.works-details-wrapper {
+  max-width: 1000px;
+  background: #FFF;
+  padding: 20px 30px;
+  margin: 40px auto;
+  position: relative;
+}

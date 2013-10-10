@@ -1,0 +1,86 @@
+@mixin clearfix() {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin generateMP() {
+  @for $i from 0 through 20 {
+    .m#{$i * 5}  { margin: $i * 5px; }
+    .mr#{$i * 5} { margin-right: $i * 5px; }
+    .mb#{$i * 5} { margin-bottom: $i * 5px; }
+    .ml#{$i * 5} { margin-left: $i * 5px; }
+    .mt#{$i * 5} { margin-top: $i * 5px; }
+
+    .p#{$i * 5}  { padding: $i * 5px; }
+    .pr#{$i * 5} { padding-right: $i * 5px; }
+    .pb#{$i * 5} { padding-bottom: $i * 5px; }
+    .pl#{$i * 5} { padding-left: $i * 5px; }
+    .pt#{$i * 5} { padding-top: $i * 5px; }
+  }
+}
+
+@include generateMP;
+
+.f-left {
+  float: left;
+}
+.f-right {
+  float: right;
+}
+.f-none {
+  float: none;
+}
+.center {
+  text-align: center;
+}
+.clearfix {
+  @include clearfix;
+}
+.hidden {
+  display: none;
+}
+.a-left {
+  text-align: left;
+}
+.a-center {
+  text-align: center;
+}
+.a-right {
+  text-align: right;
+}
+.a-justify {
+  text-align: justify;
+}
+.invisible {
+  @include opacity(0);
+  @include transition(all 0.2s linear);
+}
+.invisible.visible {
+  @include opacity(100);
+  @include transition(all 0.2s linear);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+
+img {
+  max-width: 100%;
+}
+
+.quote {
+  margin: 15px 0;
+  border-left: 3px solid #EEE;
+  font-size: 16px;
+  line-height: 26px;
+  padding: 5px 0 5px 15px;
+  font-style: italic;
+}
