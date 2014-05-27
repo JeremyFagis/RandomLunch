@@ -3,27 +3,35 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
+        <title>LunchRoulette</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
 
-        <div class="container">
-            <div id="result">
-                <h1 id="resto"></h1>
-                <h2 id="prix"></h2>
-                <h3 id="voiture"></h3>
+        <div id="main-behind"></div>
+        <div id="main">
+            <div id="inner">
+                <div id="intro">
+                    <p><strong>Tu ne sais pas où manger à midi ?<br/>Ceci est fait pour toi !</strong></p>
+                    <a href="#" id="launch">Lance la lunch roulette</a>
+                </div>
+                <div id="result">
+                    <div id="wrapper">
+                        <div class="separator"></div>
+                        <p id="resto">Resto</p>
+                        <p id="prix">Prix</p>
+                        <div class="separator"></div>
+                    </div>
+                    <a href="#" id="reload"></a>
+                </div>
             </div>
-            <a href="#" id="reload">RELOAD</a>
         </div>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+        <script src="js/vendor/jquery-1.10.1.min.js"></script>
         <script type="text/javascript" src="js/vendor/jquery.google.spreadsheet.js"></script>
         <script src="js/main.js"></script>
     </body>
