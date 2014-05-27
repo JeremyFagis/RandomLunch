@@ -96,7 +96,14 @@ body {
     border-top: 7px solid rgba(104, 133, 189, 0.5);
     border-bottom: 7px solid rgba(104, 133, 189, 0.5);
     padding: 10px;
-    line-height: 30px;
+    line-height: 45px;
+    font-size: 35px;
+}
+#wrapper p {
+    margin: 5px 0;
+}
+#resto {
+    font-weight: bold;
 }
 #reload {
     position: absolute;
